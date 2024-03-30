@@ -1,0 +1,12 @@
+{% extends "admin/login.html" %}
+{% block content %}
+<div id="content-main">
+    {{ block.super }}  <!-- 기존 로그인 폼을 불러옵니다. -->
+    <!-- Keycloak 로그인 버튼 추가 -->
+    <div class="submit-row">
+        <input type="button" value="Keycloak 로그인" 
+               onclick="location.href='{% url 'social:begin' 'keycloak' %}?next={{ request.GET.next }}'"
+               style="background: #ff3d00; color: white; width: 100%;">
+    </div>
+</div>
+{% endblock %}
